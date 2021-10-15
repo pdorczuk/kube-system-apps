@@ -1,0 +1,13 @@
+helmChartInflationGenerator:
+- chartName: metallb
+  chartRepoUrl: https://charts.bitnami.com/bitnami
+  chartVersion: v2.1.2
+  releaseName: metallb
+  releaseNamespace: operations
+  values: https://raw.githubusercontent.com/pdorczuk-kubeshield/kube-system-apps/master/metallb/metallb-values.yaml
+
+commonLabels:
+  application: ingress
+  component: metallb
+  team: operations
+namespace: operations

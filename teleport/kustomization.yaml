@@ -1,0 +1,11 @@
+helmChartInflationGenerator:
+- chartName: teleport-kube-agent
+  chartRepoUrl: https://charts.releases.teleport.dev
+  chartVersion: v0.0.2
+  releaseName: teleport-agent 
+  releaseNamespace: operations
+  values: teleport_agent-values.yaml
+
+commonLabels:
+  team: operations
+namespace: operations

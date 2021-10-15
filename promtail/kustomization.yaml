@@ -1,0 +1,9 @@
+commonLabels:
+  application: monitoring
+  component: promtail
+  team: operations
+namespace: operations
+
+resources:
+- sealedsecret.yaml
+- promtail-deployment.yaml

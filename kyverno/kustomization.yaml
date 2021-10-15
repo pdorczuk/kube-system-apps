@@ -1,0 +1,17 @@
+helmChartInflationGenerator:
+- chartName: kyverno
+  chartRepoUrl: https://kyverno.github.io/kyverno/
+  chartVersion: v2.1.0
+  releaseName: kyverno
+  releaseNamespace: operations
+  values: https://raw.githubusercontent.com/pdorczuk-kubeshield/kube-system-apps/master/kyverno/kyverno-values.yaml
+  extraArgs:
+  - --include-crds
+
+resources:
+- github.com/pdorczuk-kubeshield/kubeshield-policies//policies
+- namespace.yaml
+
+commonLabels:
+  team: operations
+namespace: operations

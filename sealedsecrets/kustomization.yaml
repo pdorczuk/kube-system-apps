@@ -1,0 +1,19 @@
+helmChartInflationGenerator:
+- chartName: sealed-secrets
+  chartRepoUrl: https://github.com/bitnami-labs/sealed-secrets
+  chartVersion: v1.16.1
+  releaseName: sealedsecrets
+  releaseNamespace: operations
+  values: sealedsecrets-values.yaml
+  extraArgs:
+  - --include-crds
+
+resources:
+- namespace.yaml
+- master.key
+- https://raw.githubusercontent.com/bitnami-labs/sealed-secrets/main/helm/sealed-secrets/crds/sealedsecret-crd.yaml
+
+commonLabels:
+  team: operations
+  repave: ok
+namespace: operations

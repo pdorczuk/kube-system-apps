@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: teleport-proxy-http-ingress
+  namespace: operations
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: teleport-cluster
+          servicePort: https
+    host: teleport.kubeshield.com
+  tls:
+  - hosts:
+    - teleport.kubeshield.com

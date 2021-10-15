@@ -1,0 +1,12 @@
+helmChartInflationGenerator:
+- chartName: nfs-subdir-external-provisioner
+  chartRepoUrl: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
+  chartVersion: v4.0.14
+  releaseName: nfs-client
+  releaseNamespace: operations
+  values: nfs_client-values.yaml
+
+commonLabels:
+  team: operations
+  repave: ok
+namespace: operations

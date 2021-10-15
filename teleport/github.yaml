@@ -1,0 +1,33 @@
+# Create a file called github.yaml:
+kind: github
+version: v3
+metadata:
+  # connector name that will be used with `tsh --auth=github login`
+  name: github
+spec:
+  # client ID of Github OAuth app
+  client_id: a57781d64cb2c218ad6b
+  # client secret of Github OAuth app
+  client_secret: 3109c9272d54c4943ed08f08c6a8d1f632e1d579
+  # connector display name that will be shown on web UI login screen
+  display: Github
+  # callback URL that will be called after successful authentication
+  redirect_url: https://teleport.kubeshield.com:3080/v1/webapi/github/callback
+  # mapping of org/team memberships onto allowed logins and roles
+  teams_to_logins:
+    - organization: pdorczuk-kubeshield
+      team: operations
+      # allowed logins for users in this org/team
+      logins:
+        - root
+      # List of Kubernetes groups this Github team is allowed to connect to
+      # (see Kubernetes integration for more information)
+      kubernetes_groups: ["system:masters"]
+    #- organization: pdorczuk-kubeshield
+      #team: development
+      ## allowed logins for users in this org/team
+      #logins:
+        #- nonpriv
+      ## List of Kubernetes groups this Github team is allowed to connect to
+      ## (see Kubernetes integration for more information)
+      #kubernetes_groups: ["system:masters"]
