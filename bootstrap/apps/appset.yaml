@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-apps
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/pdorczuk-kubeshield/cluster-apps
+      revision: master
+      directories:
+      - path: apps/*
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/pdorczuk-kubeshield/cluster-apps
+        targetRevision: master
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: operations
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true

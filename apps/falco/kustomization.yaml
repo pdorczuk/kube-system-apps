@@ -1,0 +1,13 @@
+helmChartInflationGenerator:
+- chartName: falco
+  chartRepoUrl: https://falcosecurity.github.io/charts
+  chartVersion: v1.16.0
+  releaseName: falco
+  releaseNamespace: operations
+  values: falco-values.yaml
+
+commonLabels:
+  application: runtime-security
+  component: falco
+  team: operations
+namespace: operations

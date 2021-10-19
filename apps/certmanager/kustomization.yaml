@@ -1,0 +1,19 @@
+helmChartInflationGenerator:
+- chartName: cert-manager
+  chartRepoUrl: https://charts.jetstack.io
+  chartVersion: v1.1.0
+  releaseName: cert-manager
+  releaseNamespace: cert-manager
+  values: https://raw.githubusercontent.com/pdorczuk-kubeshield/cluster-apps/master/apps/certmanager/certmanager-values.yaml
+
+resources:
+- namespace.yaml
+- sealedsecret.yaml
+- issuer.yaml
+- https://github.com/jetstack/cert-manager/releases/download/v1.1.0/cert-manager.crds.yaml
+
+commonLabels:
+  component: ingress
+  application: certmanager
+  team: operations
+namespace: cert-manager

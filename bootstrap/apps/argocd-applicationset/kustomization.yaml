@@ -1,0 +1,17 @@
+helmChartInflationGenerator:
+- chartName: argocd-applicationset
+  chartRepoUrl: https://argoproj.github.io/argo-helm
+  chartVersion: v1.5.1
+  releaseName: argocd-applicationset
+  releaseNamespace: operations
+  values: argocd-applicationset-values.yaml
+  extraArgs:
+  - --include-crds
+
+commonLabels:
+  team: operations
+  repave: ok
+namespace: operations
+
+resources:
+- https://raw.githubusercontent.com/argoproj/argo-helm/master/charts/argocd-applicationset/crds/crd-applicationset.yaml

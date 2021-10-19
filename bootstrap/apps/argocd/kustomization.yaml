@@ -1,0 +1,24 @@
+helmChartInflationGenerator:
+- chartName: argo-cd
+  chartRepoUrl: https://argoproj.github.io/argo-helm
+  chartVersion: v3.23.1
+  releaseName: argocd
+  releaseNamespace: operations
+  values: argocd-values.yaml
+  extraArgs:
+  - --include-crds
+
+commonLabels:
+  team: operations
+  repave: ok
+namespace: operations
+
+resources:
+- sealedsecret.yaml
+- ingress-https.yaml
+- ingress-grpc.yaml
+- https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/crds/application-crd.yaml
+- https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/crds/appproject-crd.yaml
+
+patchesStrategicMerge:
+- patch_sealedsecret_manage_argo_secret.yaml
