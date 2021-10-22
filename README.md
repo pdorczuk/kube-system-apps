@@ -14,9 +14,10 @@ There is a wrapper script to create a single node cluster using Kubeadm. That sc
 
 You will also need to have a current version of [Kustomize](https://kubectl.docs.kubernetes.io/installation/kustomize/).
 
-If you want to use the Kubeadm script, clone this repo on the server that you want to install Kubernetes on. Mine is a single Ubuntu 20.04 server. Modify the values in both /kubeadm/kubeadm-config.yaml and /kubeadm/calico-config.yaml to fit your environment. Then:
+If you want to use the Kubeadm script, clone this repo on the server that you want to install Kubernetes on. Mine is a single Ubuntu 20.04 server. Modify the values in both /bootstrap/infrastructure/kubeadm/kubeadm-config.yaml and /bootstrap/infrastructure/kubeadm/calico-config.yaml to fit your environment. Then:
 ```
-bash ./kubeadm/cluster-wrapper.sh create
+cd ./bootstrap/infrastructure/kubeadm/
+bash kubeadm.sh
 ```
 
 You should now have a working Kubernetes cluster that we can play with.
