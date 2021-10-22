@@ -20,7 +20,7 @@ cd ./bootstrap/infrastructure/kubeadm/
 bash kubeadm.sh
 ```
 
-You should now have a working Kubernetes cluster that we can play with.
+We should now have a working Kubernetes cluster that we can play with.
 
 ### Installing
 
